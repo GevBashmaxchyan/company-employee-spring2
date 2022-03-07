@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>employee</title>
+</head>
+<body>
+Add Employee
+<form action="/addEmployee" method="post">
+    <input th:if="${employee != null}" type="hidden" th:value="${employee.id}" name="id">
+    Name: <input type="text" name="name" th:value="${employee==null} ? '': ${employee.name}"/> <br>
+    Surname: <input type="text" name="surname" th:value="${employee==null} ? '': ${employee.surname}"/> <br>
+    email: <input type="text" name="email" th:value="${employee==null} ? '': ${employee.email}"/> <br>
+    phone-number: <input type="text" name="phoneNumber" th:value="${employee==null} ? '': ${employee.phoneNumber}"/> <br>
+    salary: <input type="text" name="salary" th:value="${employee==null} ? '': ${employee.salary}"/> <br>
+    position: <input type="text" name="position" th:value="${employee==null} ? '': ${employee.position}"/> <br>
+
+    company:
+    <select name="company.id">
+        <option th:each="comp:${company}" th:text="${comp.name}" th:value="${comp.id}"></option>
+    </select><br>
+
+    <input type="submit" value="save">
+</form>
+</body>
+</html>
