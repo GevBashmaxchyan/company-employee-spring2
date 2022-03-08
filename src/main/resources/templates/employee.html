@@ -16,6 +16,7 @@ All employees
         <th>salary</th>
         <th>position</th>
         <th>company</th>
+        <th>picture</th>
 
     </tr>
     <tr th:each="employee:${employees}">
@@ -26,6 +27,16 @@ All employees
         <td th:text="${employee.salary}"></td>
         <td th:text="${employee.position}"></td>
         <td th:text="${employee.company.name}"></td>
+        <td>
+            <div style="width: 55px; float:left;">
+                <div>
+                    <img th:if="${employee.picUrl != null}" th:src="@{/getImage(picName=${employee.picUrl})}" width="50" height="50"/>
+                    <img th:if="${employee.picUrl == null}" src="/img.png" width="50" height="50"/>
+                </div>
+            </div>
+
+        </td>
+
 
     </tr>
 </table>

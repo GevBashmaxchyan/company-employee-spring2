@@ -23,6 +23,7 @@ public class Employee {
     private String phoneNumber;
     private String salary;
     private String position;
+    private String picUrl;
     @ManyToOne
     private Company company;
 }
